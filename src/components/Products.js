@@ -16,7 +16,12 @@ import {
 } from "@mui/material";
 
 
-
+const MainContainer = styled.div`
+  background-color: whitesmoke; 
+  padding: 20px;
+  min-height: 100vh; 
+  box-sizing: border-box;
+`;
 
 const MainTitleText = styled.p`
   font-size: 40px;
@@ -74,6 +79,11 @@ const SearchResultText = styled.p`
     margin-left: 10px; 
 `;
 
+const StyledTableContainer = styled(TableContainer)`
+  max-height: 500px; 
+  overflow-y: auto;
+  margin-top: 20px; 
+`;
 
 
 const Products = () => {
@@ -172,7 +182,7 @@ const Products = () => {
     };
 
     return (
-        <div>
+        <MainContainer>
             <MainTitleText>상품 관리</MainTitleText>
 
             <SearchSection>
@@ -212,7 +222,7 @@ const Products = () => {
 
             <SearchResultText>총 {products.length}개의 결과가 검색되었습니다.</SearchResultText>
 
-            <TableContainer component={Paper}>
+            <StyledTableContainer component={Paper}>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -253,7 +263,7 @@ const Products = () => {
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer>
+            </StyledTableContainer>
 
             <AddProductButton>
                 <Button variant="contained" onClick={handleAddProductClick}>
@@ -313,7 +323,7 @@ const Products = () => {
                     </ModalContent>
                 </Fade>
             </Modal>
-        </div>
+        </MainContainer>
     );
 };
 
